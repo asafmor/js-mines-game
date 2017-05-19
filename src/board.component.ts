@@ -25,7 +25,7 @@ export const boardComponent: IComponentOptions = {
         <tr height="64" ng-repeat="n in [].constructor($ctrl.game.boardSize) track by $index">
             <td><img src="./img/edge_left.png"/></td>
             <td ng-repeat="m in [].constructor($ctrl.game.boardSize) track by $index"
-                style="background-image: url('./img/tile_grass.png')">
+                style="/*noinspection CssUnknownTarget*/background-image: url('./img/tile_grass.png')">
                 <img ng-src="{{$ctrl.game.getTileImage($parent.$index, $index)}}" width="64" height="64"/>
             </td>
             <td><img src="./img/edge_right.png"/></td>
