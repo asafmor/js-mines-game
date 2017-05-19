@@ -1,5 +1,5 @@
 import {MinesGame} from "./minesGame.class";
-import {MineTile, ObstacleTile, VisitedTile} from "./tiles.class";
+import {MineTile, ObstacleTile, SlipperyTile, VisitedTile} from "./tiles.class";
 
 class GameManager {
 
@@ -25,6 +25,10 @@ class GameManager {
 
     get boardSize() {
         return this.minesGame.boardSize;
+    }
+
+    get score() {
+        return this.minesGame.score;
     }
 
     getTile(x: number, y: number) {
@@ -67,6 +71,8 @@ class GameManager {
                         return "./img/rock.png";
                     } else if (t instanceof VisitedTile) {
                         return "./img/visited.png";
+                    } else if (t instanceof SlipperyTile) {
+                        return "./img/arrows.png";
                     } else {
                         return "./img/empty.png";
                     }

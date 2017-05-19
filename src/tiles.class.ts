@@ -2,7 +2,7 @@ import {MinesGame} from "./minesGame.class";
 
 export abstract class Tile {
 
-    constructor(protected game: MinesGame, protected x: number, protected y: number) {
+    constructor(protected game: MinesGame, public x: number, public y: number) {
     }
 
     leave(to: Tile = null) {
@@ -100,5 +100,45 @@ export class ObstacleTile extends Tile {
 
     toString() {
         return '#';
+    }
+}
+
+
+export class SlipperyTile extends Tile {
+
+    protected score: number = 2;
+
+    constructor(game: MinesGame, x: number, y: number) {
+        super(game, x, y);
+    }
+
+    leave(to: Tile = null) {
+
+    }
+
+    enter(from: Tile = null) {
+        super.enter(from);
+
+        this.game.setTile(this.x, this.y, new VisitedTile(this.game, this.x, this.y));
+        this.game.score += this.score;
+
+        //Slip through
+        if (from.x < this.x) {
+            this.game.stepDown();
+            console.log("Slipped down");
+        } else if (from.x > this.x) {
+            this.game.stepUp();
+            console.log("Slipped up");
+        } else if (from.y < this.y) {
+            this.game.stepRight();
+            console.log("Slipped right");
+        } else if (from.y > this.y) {
+            this.game.stepLeft();
+            console.log("Slipped left");
+        }
+    }
+
+    toString() {
+        return '+';
     }
 }

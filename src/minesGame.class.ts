@@ -1,5 +1,5 @@
 import {getRandomInt} from "./utils";
-import {EmptyTile, MineTile, ObstacleTile, Tile} from "./tiles.class";
+import {EmptyTile, MineTile, ObstacleTile, SlipperyTile, Tile} from "./tiles.class";
 
 /**
  * A game of mines class.
@@ -39,6 +39,7 @@ export class MinesGame {
         this.numberOfMines = numberOfMines;
         this.placeMines(numberOfMines);
         this.placeObstacles(numberOfObstacles);
+        this.placeSlipperyTiles();
 
         console.log("Game Started!");
     }
@@ -154,6 +155,10 @@ export class MinesGame {
         this.placeRandomly(numberOfObstacles, ObstacleTile);
     }
 
+    private placeSlipperyTiles() {
+        this.placeRandomly(2, SlipperyTile);
+    }
+
     private placeRandomly(numberOTiles: number, tileType) {
         for (let i: number = 0; i < numberOTiles; i++) {
             let placed: boolean = false;
@@ -196,4 +201,5 @@ export class MinesGame {
 
         return false;
     }
+
 }

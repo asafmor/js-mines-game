@@ -38,8 +38,14 @@ export const statusComponent: IComponentOptions = {
                 </select>
             </div>
 
-            <div style="display:inline-block;">
+            <!-- Play Button -->
+            <div style="display:inline-block; padding-right: 24px;">
                 <button class="btn btn-success" ng-click="$ctrl.game.play()">Play!</button>
+            </div>
+
+            <!-- Score Readout -->
+            <div style="display:inline-block; font-weight: bold;">
+                Score: {{$ctrl.game.score}}
             </div>
 
         </div>

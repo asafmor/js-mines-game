@@ -9,7 +9,7 @@ appModule.controller('MyCtrl', ['$scope', 'ImageLoader', function ($scope, Image
 
     // List of strings
     ImageLoader.loadImages(myImagesList).then(function (loadedStrings) {
-        console.log("preloaded!");
+        console.log("pre-fetched!");
     });
 }]);
 
