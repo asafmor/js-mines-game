@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mines Game</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        body {
+            margin: 18px;
+            background-color: aliceblue;
+        }
+    </style>
+    <script src="node_modules/three/build/three.js"></script>
+    <script src="node_modules/core-js/client/shim.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/image-loader-angular/js/image-loader.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script>
+        SystemJS.import('src/main.js');
+    </script>
+
+</head>
+<body>
+
+<h1>Mines Game</h1>
+
+<div ng-controller="MyCtrl">
+    <div style="display: block; margin: 18px 0px;">
+        <status></status>
+    </div>
+
+    <div style="display:inline-block; vertical-align: top;">
+        <controls></controls>
+    </div>
+
+    <div style="display:inline-block;">
+        <board></board>
+    </div>
+</div>
+</body>
+</html>
